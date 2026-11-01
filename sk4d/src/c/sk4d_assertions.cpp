@@ -317,6 +317,16 @@ static_assert(static_cast<int>(SkHighContrastConfig::InvertStyle::kLast)        
 static_assert(static_cast<int>(SkImage::kAllow_CachingHint)    == static_cast<int>(ALLOW_SK_IMAGECACHINGHINT),    "");
 static_assert(static_cast<int>(SkImage::kDisallow_CachingHint) == static_cast<int>(DISALLOW_SK_IMAGECACHINGHINT), "");
 
+// SkImage::RescaleGamma
+static_assert(static_cast<int>(SkImage::RescaleGamma::kSrc)    == static_cast<int>(SRC_SK_RESCALEGAMMA),    "");
+static_assert(static_cast<int>(SkImage::RescaleGamma::kLinear) == static_cast<int>(LINEAR_SK_RESCALEGAMMA), "");
+
+// SkImage::RescaleMode
+static_assert(static_cast<int>(SkImage::RescaleMode::kNearest)        == static_cast<int>(NEAREST_SK_RESCALEMODE),         "");
+static_assert(static_cast<int>(SkImage::RescaleMode::kLinear)         == static_cast<int>(LINEAR_SK_RESCALEMODE),          "");
+static_assert(static_cast<int>(SkImage::RescaleMode::kRepeatedLinear) == static_cast<int>(REPEATED_LINEAR_SK_RESCALEMODE), "");
+static_assert(static_cast<int>(SkImage::RescaleMode::kRepeatedCubic)  == static_cast<int>(REPEATED_CUBIC_SK_RESCALEMODE),  "");
+
 // SkImageFilters::Dither
 static_assert(std::is_same<std::underlying_type_t<SkImageFilters::Dither>, bool>::value, "");
 

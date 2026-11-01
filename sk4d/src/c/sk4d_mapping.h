@@ -146,6 +146,7 @@
 
 
 SK4D_DEF_CLASS_MAP(SkAnimCodecPlayer, sk_animcodecplayer_t, AnimCodecPlayer)
+SK4D_DEF_CLASS_MAP(SkImage::AsyncReadResult, sk_asyncreadresult_t, AsyncReadResult)
 SK4D_DEF_CLASS_MAP(SkBlender, sk_blender_t, Blender)
 SK4D_DEF_CLASS_MAP(SkCanvas, sk_canvas_t, Canvas)
 SK4D_DEF_CLASS_MAP(SkCanvas::Lattice, sk_lattice_t, Lattice)
@@ -232,6 +233,8 @@ SK4D_DEF_ENUM_MAP(SkFont::Edging, sk_fontedging_t, FontEdging)
 SK4D_DEF_ENUM_MAP(SkFontHinting, sk_fonthinting_t, FontHinting)
 SK4D_DEF_ENUM_MAP(SkFontStyle::Slant, sk_fontslant_t, FontSlant)
 SK4D_DEF_ENUM_MAP(SkImage::CachingHint, sk_imagecachinghint_t, ImageCachingHint)
+SK4D_DEF_ENUM_MAP(SkImage::RescaleGamma, sk_rescalegamma_t, RescaleGamma)
+SK4D_DEF_ENUM_MAP(SkImage::RescaleMode, sk_rescalemode_t, RescaleMode)
 SK4D_DEF_ENUM_MAP(SkImageFilters::Dither, bool, ImageFiltersDither)
 SK4D_DEF_ENUM_MAP(SkPaint::Cap, sk_strokecap_t, StrokeCap)
 SK4D_DEF_ENUM_MAP(SkPaint::Join, sk_strokejoin_t, StrokeJoin)

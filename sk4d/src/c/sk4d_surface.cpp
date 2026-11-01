@@ -11,6 +11,19 @@
 #include "include/c/sk4d_surface.h"
 #include "src/c/sk4d_mapping.h"
 
+void sk4d_surface_async_rescale_and_read_pixels(sk_surface_t* self, const sk_imageinfo_t* image_info, const sk_irect_t* src_rect, sk_rescalegamma_t rescale_gamma, sk_rescalemode_t rescale_mode, sk_image_async_read_proc proc, void* proc_context) {
+    struct Context {
+        sk_image_async_read_proc proc;
+        void* proc_context;
+    };
+    AsSurface(self)->asyncRescaleAndReadPixels(AsImageInfo(image_info), AsIRect(*src_rect), AsRescaleGamma(rescale_gamma), AsRescaleMode(rescale_mode),
+        [](void* context, std::unique_ptr<const SkImage::AsyncReadResult> result) {
+            std::unique_ptr<Context> c(static_cast<Context*>(context));
+            c->proc(c->proc_context, const_cast<sk_asyncreadresult_t*>(ToAsyncReadResult(result.release())));
+        },
+        new Context{proc, proc_context});
+}
+
 void sk4d_surface_draw(sk_surface_t* self, sk_canvas_t* canvas, float x, float y, sk_paint_t* paint) {
     AsSurface(self)->draw(AsCanvas(canvas), x, y, AsPaint(paint));
 }

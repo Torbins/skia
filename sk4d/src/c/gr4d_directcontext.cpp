@@ -13,6 +13,10 @@ void gr4d_directcontext_abandon_context(gr_directcontext_t* self) {
     SK4D_ONLY_GPU(AsGrDirectContext(self)->abandonContext();)
 }
 
+void gr4d_directcontext_check_async_work_completion(gr_directcontext_t* self) {
+    SK4D_ONLY_GPU(AsGrDirectContext(self)->checkAsyncWorkCompletion();)
+}
+
 gr_backendtexture_t* gr4d_directcontext_create_texture(gr_directcontext_t* self, int32_t width, int32_t height, sk_colortype_t color_type, bool is_mipmapped, bool is_renderable, bool is_protected) {
     return SK4D_ONLY_GPU(ToGrBackendTexture(new GrBackendTexture(AsGrDirectContext(self)->createBackendTexture(width, height, AsColorType(color_type), AsGrMipmapped(is_mipmapped), AsGrRenderable(is_renderable), AsGrProtected(is_protected)))), nullptr);
 }

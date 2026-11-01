@@ -13,6 +13,11 @@
 
 SK4D_C_PLUS_PLUS_BEGIN_GUARD
 
+SK4D_API void sk4d_asyncreadresult_destroy(sk_asyncreadresult_t* self);
+SK4D_API int32_t sk4d_asyncreadresult_get_count(const sk_asyncreadresult_t* self);
+SK4D_API const void* sk4d_asyncreadresult_get_data(const sk_asyncreadresult_t* self, int32_t index);
+SK4D_API size_t sk4d_asyncreadresult_get_row_bytes(const sk_asyncreadresult_t* self, int32_t index);
+
 SK4D_API bool sk4d_image_encode_to_file(const sk_image_t* self, const char file_name[], sk_encodedimageformat_t format, int32_t quality);
 SK4D_API bool sk4d_image_encode_to_stream(const sk_image_t* self, sk_wstream_t* w_stream, sk_encodedimageformat_t format, int32_t quality);
 SK4D_API sk_alphatype_t sk4d_image_get_alpha_type(const sk_image_t* self);

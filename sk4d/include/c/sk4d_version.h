@@ -12,7 +12,7 @@
 #include "include/c/sk4d_types.h"
 
 #define SK4D_VERSION_MAJOR 151
-#define SK4D_VERSION_MINOR 1
+#define SK4D_VERSION_MINOR 2
 #define SK4D_VERSION_PATCH 0
 
 SK4D_C_PLUS_PLUS_BEGIN_GUARD

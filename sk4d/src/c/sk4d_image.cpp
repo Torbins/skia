@@ -17,6 +17,22 @@
 #include "src/image/SkImageGeneratorPriv.h"
 
 // DEPRECATED
+void sk4d_asyncreadresult_destroy(sk_asyncreadresult_t* self) {
+    delete AsAsyncReadResult(self);
+}
+
+int32_t sk4d_asyncreadresult_get_count(const sk_asyncreadresult_t* self) {
+    return AsAsyncReadResult(self)->count();
+}
+
+const void* sk4d_asyncreadresult_get_data(const sk_asyncreadresult_t* self, int32_t index) {
+    return AsAsyncReadResult(self)->data(index);
+}
+
+size_t sk4d_asyncreadresult_get_row_bytes(const sk_asyncreadresult_t* self, int32_t index) {
+    return AsAsyncReadResult(self)->rowBytes(index);
+}
+
 bool sk4d_image_encode_to_file(const sk_image_t* self, const char file_name[], sk_encodedimageformat_t format, int32_t quality) {
     SkFILEWStream file(file_name);
     return sk4d_image_encode_to_stream(self, ToWStream(&file), format, quality);

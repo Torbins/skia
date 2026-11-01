@@ -13,6 +13,7 @@
 
 SK4D_C_PLUS_PLUS_BEGIN_GUARD
 
+SK4D_API void sk4d_surface_async_rescale_and_read_pixels(sk_surface_t* self, const sk_imageinfo_t* image_info, const sk_irect_t* src_rect, sk_rescalegamma_t rescale_gamma, sk_rescalemode_t rescale_mode, sk_image_async_read_proc proc, void* proc_context);
 SK4D_API void sk4d_surface_draw(sk_surface_t* self, sk_canvas_t* canvas, float x, float y, sk_paint_t* paint);
 SK4D_API void sk4d_surface_flush(sk_surface_t* self);
 SK4D_API void sk4d_surface_flush_and_submit(sk_surface_t* self, gr_backendsemaphore_t* semaphores[], int32_t count, const gr_backendsurfacemutablestate_t* new_state, bool sync_cpu);

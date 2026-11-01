@@ -14,6 +14,7 @@
 SK4D_C_PLUS_PLUS_BEGIN_GUARD
 
 SK4D_API void gr4d_directcontext_abandon_context(gr_directcontext_t* self);
+SK4D_API void gr4d_directcontext_check_async_work_completion(gr_directcontext_t* self);
 SK4D_API gr_backendtexture_t* gr4d_directcontext_create_texture(gr_directcontext_t* self, int32_t width, int32_t height, sk_colortype_t color_type, bool is_mipmapped, bool is_renderable, bool is_protected);
 SK4D_API gr_backendtexture_t* gr4d_directcontext_create_texture2(gr_directcontext_t* self, int32_t width, int32_t height, sk_colortype_t color_type, sk_color_t color, bool is_mipmapped, bool is_renderable, bool is_protected);
 SK4D_API gr_backendtexture_t* gr4d_directcontext_create_texture3(gr_directcontext_t* self, int32_t width, int32_t height, sk_colortype_t color_type, const sk_color4f_t* color, bool is_mipmapped, bool is_renderable, bool is_protected);

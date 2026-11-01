@@ -46,6 +46,7 @@
 SK4D_C_PLUS_PLUS_BEGIN_GUARD
 
 typedef struct sk_animcodecplayer_t          sk_animcodecplayer_t;
+typedef struct sk_asyncreadresult_t          sk_asyncreadresult_t;
 typedef struct sk_blender_t                  sk_blender_t;
 typedef struct sk_canvas_t                   sk_canvas_t;
 typedef struct sk_codec_t                    sk_codec_t;
@@ -351,6 +352,18 @@ typedef enum {
     REVERSE_DIFFERENCE_SK_REGIONOP,
     REPLACE_SK_REGIONOP,
 } sk_regionop_t;
+
+typedef enum {
+    SRC_SK_RESCALEGAMMA,
+    LINEAR_SK_RESCALEGAMMA,
+} sk_rescalegamma_t;
+
+typedef enum {
+    NEAREST_SK_RESCALEMODE,
+    LINEAR_SK_RESCALEMODE,
+    REPEATED_LINEAR_SK_RESCALEMODE,
+    REPEATED_CUBIC_SK_RESCALEMODE,
+} sk_rescalemode_t;
 
 typedef enum {
     UPPER_LEFT_SK_RRECTCORNER,
@@ -671,6 +684,9 @@ typedef struct {
 typedef sk_point_t sk_vector_t;
 
 typedef void (*sk_font_path_proc)              (const sk_path_t* path, const sk_matrix_t* matrix, void* context);
+// Receives the ownership of the result, which is null on failure and must be
+// destroyed with sk4d_asyncreadresult_destroy, on any thread.
+typedef void (*sk_image_async_read_proc)       (void* context, sk_asyncreadresult_t* result);
 typedef void (*sk_image_raster_release_proc)   (const void* pixels, void* context);
 typedef void (*sk_image_texture_release_proc)  (void* context);
 typedef void (*sk_streamadapter_release_proc)  (void* context);
